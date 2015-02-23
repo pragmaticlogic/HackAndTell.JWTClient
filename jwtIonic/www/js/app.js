@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var app = angular.module('app', ['ionic'])
+angular.module('app', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -24,7 +24,7 @@ var app = angular.module('app', ['ionic'])
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
@@ -48,11 +48,10 @@ var app = angular.module('app', ['ionic'])
     })
     ;
 
-  // if none of the above states are matched, use this as the fallback
+    // if none of the above states are matched, use this as the fallback
+    $urlRouterProvider.otherwise('/login');
   
-  $urlRouterProvider.otherwise('/login');
-  
-
+    $httpProvider.interceptors.push('authInterceptor');
 })
 
 ;

@@ -1,4 +1,4 @@
-app.controller('RegisterCtrl', ['$scope', '$ionicPopup', '$timeout', '$http', '$state', '$window', function($scope, $ionicPopup, $timeout, $http, $state, $window) {
+angular.module('app').controller('RegisterCtrl', ['$scope', '$ionicPopup', '$timeout', '$http', '$state', '$window', function($scope, $ionicPopup, $timeout, $http, $state, $window) {
     $scope.registerUser = function() {
         $http.post('http://grand-engine-76-195116.usw1.nitrousbox.com:8080/' + 'register', {
 			username: $scope.username,
@@ -23,6 +23,10 @@ app.controller('RegisterCtrl', ['$scope', '$ionicPopup', '$timeout', '$http', '$
                 $state.go('login');
             }, 3000);
 		});
+    };
+    
+    $scope.loginUser = function() {
+        $state.go('home');
     };
 }])
 
