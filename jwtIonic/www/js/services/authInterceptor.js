@@ -1,15 +1,20 @@
-angular.module('app').factory('authInterceptor', function(authToken) {
-    return {
-        request: function(config) {
-            var token = authToken.getToken();
+(function() {
 
-            if (token)
-                config.headers.Authorization = 'Bearer ' + token;
+    'use strict';    
 
-            return config;
-        },
-        response: function(response) {
-            return response;
-        }
-    };
-});
+    angular.module('app').factory('authInterceptor', function(authToken) {
+        return {
+            request: function(config) {
+                var token = authToken.getToken();
+
+                if (token)
+                    config.headers.Authorization = 'Bearer ' + token;
+
+                return config;
+            },
+            response: function(response) {
+                return response;
+            }
+        };
+    });
+})();
