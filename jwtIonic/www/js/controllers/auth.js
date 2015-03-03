@@ -1,8 +1,8 @@
-(function() {
+(function(module) {
 
     'use strict';
     
-    angular.module('app').controller('RegisterCtrl', ['$scope', '$ionicPopup', '$timeout', '$http', '$state', '$window', function($scope, $ionicPopup, $timeout, $http, $state, $window) {
+    module.controller('RegisterCtrl', ['$scope', '$ionicPopup', '$timeout', '$http', '$state', '$window', function($scope, $ionicPopup, $timeout, $http, $state, $window) {
         $scope.registerUser = function() {
             $http.post('http://grand-engine-76-195116.usw1.nitrousbox.com:8080/' + 'register', {
                 username: $scope.username,
@@ -33,5 +33,5 @@
             $state.go('home');
         };
     }]);
-})();
+})(angular.module('app'));
     

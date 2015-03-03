@@ -1,8 +1,8 @@
-(function() {
+(function(module) {
 
     'use strict'; 
 
-    angular.module('app').factory('authToken', function($window) {
+    module.factory('authToken', function($window) {
         var storage = $window.localStorage;
         var BEARER_TOKEN = 'bearer-token';
         var isAuthenticated = false;
@@ -24,4 +24,4 @@
             }
         };
     });
-})();
+})(angular.module('app'));

@@ -1,8 +1,8 @@
-(function() {
+(function(module) {
 
     'use strict';    
 
-    angular.module('app').factory('authInterceptor', function(authToken) {
+    module.factory('authInterceptor', function(authToken) {
         return {
             request: function(config) {
                 var token = authToken.getToken();
@@ -17,4 +17,4 @@
             }
         };
     });
-})();
+})(angular.module('app'));
